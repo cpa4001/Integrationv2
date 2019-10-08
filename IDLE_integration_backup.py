@@ -3,6 +3,8 @@
 # a main theme based on JOJO's Bizzare Adventures.
 # The quiz will  eventually have different question sets, and
 # be more complex.
+# Please understand that this file only contains the logic of the game and no pop up graphics to accompany it.
+# This program only utilizes the python shell. If you would like to use graphics, please access IDLE_integration_backup_graphics.py
 
 # Game Logic
 numCorrect = 0
