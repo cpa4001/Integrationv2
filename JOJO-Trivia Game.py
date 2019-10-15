@@ -3,10 +3,18 @@
 # a main theme based on JOJO's Bizzare Adventures.
 # The quiz will  eventually have different question sets, and
 # be more complex.
+# The game utilizes window graphics form an external module
+# called graphics.py, and I chose to use pop-up graphics
+# to appeal more to the user and be more stylish than 
+# the bland python shell.
+# This game is for Jojo's BA nerds and enthusiasts
+# I would reccomend you watch up to part 5 to 
+# get a perfect score in this game.
 
 from graphics import *
 #------------- POP UP Graphics----------------------
 # text pop up for game (will go before game logic)
+# and Image will be in window
 win = GraphWin("JOJO Trivia Game", 600, 600)
 def main(message):
     win.setBackground(color_rgb(0,0,0))
@@ -22,6 +30,7 @@ def main(message):
     win.getMouse()
     win.close
 
+#Clears the screen for the next scene
 def clear():
         rect = Rectangle(Point(0,0), Point(500,500))
         rect.setOutline(color_rgb(0,0,0))
@@ -74,6 +83,9 @@ n = int(input("What question level would you like to start at for your first set
 
 arr = []
 
+#This is the first set
+#The question will vary based on the user's
+#desired difficulty
 def questionlevelone():
     if n == 0:
         answer = input("In what part did Johnathan Joestar die?")
@@ -138,6 +150,8 @@ main("Now time for your second set!\n There will be five questions. Click to con
 clear()
 
 main("Remember to click until the question appears on the shell\n and then put in your answer")
+#This is the second set 
+# of questions for the user
 secondSet = ["What is the stand of Fugo in part 5? ",
              "What is D'arby the youger's stand in part 3? ",
              "What is shigechi's stand in part 4? ",
@@ -149,19 +163,26 @@ secondSetAnswers = ["Purple Haze", "Atum", "Harvest", "Marine Biology", "Mikitak
 scorearr = []
 if arr.count(1) == 1:
     scorearr.append(1)
-    
-for i in range(len(secondSet)):
-    main(secondSet[i])
-    clear()
-    question = input(secondSet[i])
-    if question == secondSetAnswers[i]:
-        main("That's Correct")
+
+isOn = True
+
+#This while loop will execute the for loop
+# which iterates through the array
+# of questions
+while isOn:    
+    for i in range(len(secondSet)):
+        main(secondSet[i])
         clear()
-        print("That's Correct")
-        scorearr.append(1)
-    else:
-        print("That's not correct")
-        main("That's not correct")
+        question = input(secondSet[i])
+        if question == secondSetAnswers[i]:
+            main("That's Correct")
+            clear()
+            print("That's Correct")
+            scorearr.append(1)
+        else:
+            print("That's not correct")
+            main("That's not correct")
+    isOn = False
 scoreFinall = (int(scorearr.count(1))/ 6.0) * 100
 print("Your Final Score is: ", format(scoreFinall, '.2f'))
 main("Your Final Score is: " + format(scoreFinall, '.2f'))
