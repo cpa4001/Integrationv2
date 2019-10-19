@@ -3,13 +3,6 @@
 # a main theme based on JOJO's Bizzare Adventures.
 # The quiz will  eventually have different question sets, and
 # be more complex.
-# The game utilizes window graphics form an external module
-# called graphics.py, and I chose to use pop-up graphics
-# to appeal more to the user and be more stylish than 
-# the bland python shell.
-# This game is for Jojo's BA nerds and enthusiasts
-# I would reccomend you watch up to part 5 to 
-# get a perfect score in this game.
 
 from graphics import *
 #------------- POP UP Graphics----------------------
@@ -116,7 +109,7 @@ def questionlevelone():
             clear()
     elif n == 3:
         answer = input("What does famous phrase does DIO say as he is about to fight Jotaro? ")
-        if answer == 'I am approaching':
+        if answer == 'oh, so you are approaching me':
             main("Correct")
             clear()
             arr.append(1)
@@ -150,8 +143,7 @@ main("Now time for your second set!\n There will be five questions. Click to con
 clear()
 
 main("Remember to click until the question appears on the shell\n and then put in your answer")
-#This is the second set 
-# of questions for the user
+clear()
 secondSet = ["What is the stand of Fugo in part 5? ",
              "What is D'arby the youger's stand in part 3? ",
              "What is shigechi's stand in part 4? ",
@@ -166,9 +158,6 @@ if arr.count(1) == 1:
 
 isOn = True
 
-#This while loop will execute the for loop
-# which iterates through the array
-# of questions
 while isOn:    
     for i in range(len(secondSet)):
         main(secondSet[i])
@@ -182,10 +171,11 @@ while isOn:
         else:
             print("That's not correct")
             main("That's not correct")
+            clear()
     isOn = False
 scoreFinall = (int(scorearr.count(1))/ 6.0) * 100
 print("Your Final Score is: ", format(scoreFinall, '.2f'))
 main("Your Final Score is: " + format(scoreFinall, '.2f'))
 clear()
 main("Thanks for playing!")
-#win.close()
+win.close()
