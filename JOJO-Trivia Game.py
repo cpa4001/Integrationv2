@@ -1,47 +1,46 @@
-#Christian Apostoli
+# Christian Apostoli
 # This will  be a trivia quiz which has
 # a main theme based on JOJO's Bizzare Adventures.
-# The quiz will  eventually have different question sets, and
-# be more complex.
-
-#go to basic human factors
-#go to integrration final
-#except ValueError:
-#print("Error prompt")
-#do try in while statement, use while loop 
+# The game has 2 sets of questions, one that varies
+# on the players desired difficulty and 
 
 from graphics import *
-#------------- POP UP Graphics----------------------
+
+# ------------- POP UP Graphics----------------------
 # text pop up for game 
 
 # Creates Initial window with logo and becomes the
 # main backdrop of the game
 win = GraphWin("JOJO Trivia Game", 600, 600)
-def newscene(message):
-    win.setBackground(color_rgb(0,0,0))
 
-    txt = Text(Point(250,350), message)
-    txt.setTextColor(color_rgb(0,255, 200))
+
+def newscene(message):
+    win.setBackground(color_rgb(0, 0, 0))
+
+    txt = Text(Point(250, 350), message)
+    txt.setTextColor(color_rgb(0, 255, 200))
     txt.setSize(15)
     txt.draw(win)
 
-    img = Image(Point(250,180), "Jojo.png")
+    img = Image(Point(250, 180), "Jojo.png")
     img.draw(win)
-                      
+
     win.getMouse()
 
-#Clears the screen for the next scene
+
+# Clears the screen for the next scene
 def clear():
-        rect = Rectangle(Point(0,0), Point(600,600))
-        rect.setOutline(color_rgb(0,0,0))
-        rect.setFill(color_rgb(0,0,0))
-        rect.draw(win)
-        
+    rect = Rectangle(Point(0, 0), Point(600, 600))
+    rect.setOutline(color_rgb(0, 0, 0))
+    rect.setFill(color_rgb(0, 0, 0))
+    rect.draw(win)
+
+
 # Function that creates textbox for the user to enter info
 # Function was very difficult to incorporate with other
 # code, so it was commented for possible future use
 
-##def text_box(message):
+## def text_box(message):
 ##    win.setBackground(color_rgb(0,0,0))
 ##
 ##    txt = Text(Point(250,300), message)
@@ -60,13 +59,13 @@ def clear():
 ##        txt.setText(input_box.getText())
 ##
 ##    win.getMouse()
-#-------------------------------------------------
+# -------------------------------------------------
 
 newscene("Hello user, welcome to my JOJO Trivia Game!\n\
 Continue the game by clicking the black window.")
 clear()
 
-newscene("All new players will start out with a score of " + str(0)+ ".")
+newscene("All new players will start out with a score of " + str(0) + ".")
 clear()
 
 newscene("A player's final score will be determined by\n\
@@ -103,11 +102,11 @@ while input_is_bad:
             input_is_bad = False
     except ValueError:
         print("This is not a whole number")
-        
 
 # This array is created to see if the user answered the question correctly
 # by inserting a value in the array and checking  if the value is present.
 arr = []
+
 
 # This is the first set
 # The question will vary based on the user's desired difficulty
@@ -171,6 +170,7 @@ def questionlevelone():
             newscene("Sorry, Incorrect. Click to Continue")
             clear()
 
+
 questionlevelone()
 
 score = (arr.count(1) * 100)
@@ -185,7 +185,7 @@ newscene("Remember to click until the question appears\n\
 on the shell and then put in your answer")
 clear()
 
-#The following two arrays contain the questions
+# The following two arrays contain the questions
 # and answers for the next set of questions.
 secondSet = ["What is the stand of Fugo in part 5? ",
              "What is D'arby the youger's stand in part 3?  ",
@@ -201,7 +201,7 @@ if arr.count(1) == 1:
 
 isOn = True
 
-while isOn:    
+while isOn:
     for i in range(len(secondSet)):
         newscene(secondSet[i] + "\nClick to Continue")
         clear()
@@ -215,10 +215,10 @@ while isOn:
             print("That's not correct.")
             newscene("That's not correct. Click to Continue")
             clear()
-            
+
     isOn = False
-    
-scoreFinall = (int(scorearr.count(1))/ 6.0) * 100
+
+scoreFinall = (int(scorearr.count(1)) / 6.0) * 100
 print("Your Final Score is: ", format(scoreFinall, '.2f'))
 newscene("Your Final Score is: " + format(scoreFinall, '.2f'))
 clear()
