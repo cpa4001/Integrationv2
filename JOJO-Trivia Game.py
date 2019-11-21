@@ -1,3 +1,8 @@
+""" This is the final version of my Integration project
+This is a Trivia Game that also serves as a GUI
+revolving around JOJO's Bizzare adventures.
+__author__ = Christian Apostoli
+"""
 # Christian Apostoli
 # This will  be a trivia quiz which has
 # a main theme based on JOJO's Bizzare Adventures.
@@ -12,6 +17,11 @@ win = GraphWin("JOJO Trivia Game", 600, 600)
 
 
 def make_new_scene(message):
+    """
+    make_new_scene passes the message argument as text to the screen
+    and will also place the logo above the text.
+    :param message: The text on the GUI window
+    """
     # make_new_scene creates initial window with logo and becomes the
     # main backdrop of the game creating a scene
     # scene with text that is passed as the argument
@@ -29,7 +39,11 @@ def make_new_scene(message):
     win.getMouse()
 
 
-def clear():
+def clear
+    """
+    Clear clears the GUI window by placing a rectangle on to the screen
+    and keeps the GUI window on the screen.
+    """
     # Clears the screen for the next scene
     # by placing a rectangle in the window to
     # erase the content on the screen
@@ -117,6 +131,10 @@ def main():
     arr = []
 
     def question_set_one():
+        """
+        The first question in the game, and varies on the user's
+        difficulty.
+        """
         # This is the first set of questions.
         # The question will vary based on the user's desired difficulty.
         # The following conditional statement provides the questions and will determine
