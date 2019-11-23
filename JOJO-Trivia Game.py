@@ -2,7 +2,7 @@
 This is a Trivia Game that also serves as a GUI
 revolving around JOJO's Bizzare adventures.
 __author__ = Christian Apostoli
-This program utilizes the external module created by John Zelle
+This program utilizes the external module created by John Zelle.
 """
 # Christian Apostoli
 # This will  be a trivia quiz which has
@@ -77,6 +77,81 @@ def clear():
 ##        txt.setText(input_box.getText())
 ##
 ##    win.getMouse()
+
+
+def set_one(n, arr):
+    """
+    This is the first set of questions. The question will vary based on the
+    user's desired difficulty. Then the function will see if the user got
+    the question correct or not.
+    :param n: The desired level of difficulty.
+    :param arr: The array that the function appends 1 to create a score.
+    :return: The question of certain difficulty that the user will answer.
+    """
+    # The passed parameter n will be from the input function inside the while
+    # loop. The function will create a new scene with text inside the game 
+    # window and the python shell. If the user inputs the correct answer,
+    # arr will append 1 to it which will be how many questions were answered 
+    # correctly.
+    if n == 0:
+        answer = input("In what part did Johnathan Joestar die? ")
+        if answer == '1' or answer == 'part 1' or answer == 'Part 1':
+            make_new_scene("Correct. Click to Continue.")
+            clear()
+            arr.append(1)
+        else:
+            make_new_scene("Sorry, incorrect. Click to continue.")
+            clear()
+    elif n == 1:
+        answer = input("Who was Joseph's German friend\n" +
+                       "who helped him defeat the pillar men? ")
+        if (answer == 'Stronheim') or (answer == 'Victor Von Stronheim'):
+            make_new_scene("Correct, Click to continue.")
+            clear()
+            arr.append(1)
+        else:
+            make_new_scene("Sorry, incorrect. Click to continue.")
+            clear()
+    elif n == 2:
+        answer = input("What was the tarot card of the Ship stand in part 3? ")
+        if answer == 'Strength':
+            make_new_scene("Correct. Click to Continue.")
+            clear()
+            arr.append(1)
+        else:
+            make_new_scene("Sorry, incorrect. Click to continue.")
+            clear()
+    elif n == 3:
+        answer = input("What famous phrase does DIO\n" +
+                       "say as he is about to fight Jotaro? ")
+        if answer == 'oh, so you are approaching me':
+            make_new_scene("Correct. Click to continue.")
+            clear()
+            arr.append(1)
+        else:
+            make_new_scene("Sorry, incorrect. Click to continue.")
+            clear()
+    elif n == 4:
+        answer = input("What is the final opening to part 4" +
+                       "(Just say the first two words)? ")
+        if (answer == 'Breakdown') or (answer == 'Shining Justice'):
+            make_new_scene("Correct. Click to continue.")
+            clear()
+            arr.append(1)
+        else:
+            make_new_scene("Sorry, incorrect. Click to continue.")
+            clear()
+    elif n == 5:
+        answer = input("What is Giorno Giovana's famous line (in Japanese)? ")
+        if answer == 'kono giorno giovana niwa yume ga aru':
+            make_new_scene("Correct. Click to continue.")
+            clear()
+            arr.append(1)
+        else:
+            make_new_scene("Sorry, incorrect. Click to continue.")
+            clear()
+
+
 # -------------------------------------------------
 
 
@@ -142,67 +217,7 @@ def main():
     # by inserting a value in the array and checking  if the value is present.
     arr = []
 
-    # This is the first set of questions. The question will vary based on the
-    # user's desired difficulty. The following conditional statement provides
-    # the questions and will determine if the player is right or wrong for each
-    # question. The input for variable n designates the difficulty level.
-    if n == 0:
-        answer = input("In what part did Johnathan Joestar die? ")
-        if answer == '1' or answer == 'part 1' or answer == 'Part 1':
-            make_new_scene("Correct. Click to Continue.")
-            clear()
-            arr.append(1)
-        else:
-            make_new_scene("Sorry, incorrect. Click to continue.")
-            clear()
-    elif n == 1:
-        answer = input("Who was Joseph's German friend\n" +
-                       "who helped him defeat the pillar men? ")
-        if (answer == 'Stronheim') or (answer == 'Victor Von Stronheim'):
-            make_new_scene("Correct, Click to continue.")
-            clear()
-            arr.append(1)
-        else:
-            make_new_scene("Sorry, incorrect. Click to continue.")
-            clear()
-    elif n == 2:
-        answer = input("What was the tarot card of the Ship stand in part 3? ")
-        if answer == 'Strength':
-            make_new_scene("Correct. Click to Continue.")
-            clear()
-            arr.append(1)
-        else:
-            make_new_scene("Sorry, incorrect. Click to continue.")
-            clear()
-    elif n == 3:
-        answer = input("What famous phrase does DIO\n" +
-                       "say as he is about to fight Jotaro? ")
-        if answer == 'oh, so you are approaching me':
-            make_new_scene("Correct. Click to continue.")
-            clear()
-            arr.append(1)
-        else:
-            make_new_scene("Sorry, incorrect. Click to continue.")
-            clear()
-    elif n == 4:
-        answer = input("What is the final opening to part 4" +
-                       "(Just say the first two words)? ")
-        if (answer == 'Breakdown') or (answer == 'Shining Justice'):
-            make_new_scene("Correct. Click to continue.")
-            clear()
-            arr.append(1)
-        else:
-            make_new_scene("Sorry, incorrect. Click to continue.")
-            clear()
-    elif n == 5:
-        answer = input("What is Giorno Giovana's famous line (in Japanese)? ")
-        if answer == 'kono giorno giovana niwa yume ga aru':
-            make_new_scene("Correct. Click to continue.")
-            clear()
-            arr.append(1)
-        else:
-            make_new_scene("Sorry, incorrect. Click to continue.")
-            clear()
+    set_one(n, arr)
 
     score = (arr.count(1) * 100)
     make_new_scene("Your Score for your first set is " + str(score) + ".")
